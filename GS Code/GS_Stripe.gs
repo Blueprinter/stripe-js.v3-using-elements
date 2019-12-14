@@ -9,7 +9,7 @@ function paymentSettings_() {
 
 function getStripeSecret_() {
   //You must get the server side stripe secret from your stripe account
-  return '';
+  return 'Put the server side stripe secret here';
 }
 
 function runSrvrCode(x) {
