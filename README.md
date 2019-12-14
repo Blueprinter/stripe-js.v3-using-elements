@@ -1,6 +1,8 @@
 # stripe-js.v3-using-elements
 Stripe payment system using JS version 3 - This is an "In-App" payment system using Stripe Elements
 
+To view and download the code directly from the Apps Script code editor use link: https://script.google.com/d/1-T87Pyu9S-frRK7jq2G6TPa2Tn_XVIIglknyKi7q-CvZLBKwyN9TEfnR/edit?usp=drive_web
+
 To see the original stripe example code, use the link: https://github.com/stripe/stripe-payments-demo
 
 Most of the code in this example is code provided at the link above.  The code provided by Stripe has an MIT license.  This repo is a mix of code from Stripe and code from Alan Wells.  Each file has it's own license.
