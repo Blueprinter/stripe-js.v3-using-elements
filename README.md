@@ -5,6 +5,10 @@ To see the original stripe example code, use the link: https://github.com/stripe
 
 Most of the code in this example is code provided at the link above.  I have added some code to integrate the stripe code into an Apps Script Web App.  This code uses "google.script.run.appsScriptFunctionName()" to run a server function from the browser (client side).  This example code is set up in an Apps Script Web App, but can easily be used in a dialog box in a Google Sheet, Google Form or Google Doc.
 
+For this code to work, you must get two API secrets from your stripe account.  One secret for the client side code and one secret for the server side code. Add the client secret (pk_test_12346) to the JS_Stripe_Index file.  Add the server side secret sk_test_) to the GS_Stripe file.
+
+See the stripe documentation at: https://stripe.com/docs/keys to get your stripe keys.
+
 Stripe has a client side JavaScript library, which is in version 3 at the time of this commit, and a server side API which is still technically in version 1.  But the server side API of version 1 is misleading, because there are new versions that go by date.  So, even though the API is technically version 1, there are new versions by date that you should update to if possible.
 
 You must use both the client side library and server side code, unless you design your own customer input form that takes the customer credit card number.  But creating your own credit card payment form is not recommended.
