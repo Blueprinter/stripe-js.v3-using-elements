@@ -1,5 +1,5 @@
 # stripe-js.v3-using-elements
-Stripe payment system using JS version 3 - in app payment system using Stripe Elements
+Stripe payment system using JS version 3 - This is an "In-App" payment system using Stripe Elements
 
 To see the original stripe example code, use the link: https://github.com/stripe/stripe-payments-demo
 Most of the code in this example is code provided at the link above.  I have added some code to integrate the stripe code into an Apps Script Web App.
