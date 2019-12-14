@@ -2,16 +2,22 @@
 Stripe payment system using JS version 3 - This is an "In-App" payment system using Stripe Elements
 
 To see the original stripe example code, use the link: https://github.com/stripe/stripe-payments-demo
-Most of the code in this example is code provided at the link above.  I have added some code to integrate the stripe code into an Apps Script Web App.
+
+Most of the code in this example is code provided at the link above.  I have added some code to integrate the stripe code into an Apps Script Web App.  This code uses "google.script.run.appsScriptFunctionName()" to run a server function from the browser (client side).  This example code is set up in an Apps Script Web App, but can easily be used in a dialog box in a Google Sheet, Google Form or Google Doc.
 
 Stripe has a client side JavaScript library, which is in version 3 at the time of this commit, and a server side API which is still technically in version 1.  But the server side API of version 1 is misleading, because there are new versions that go by date.  So, even though the API is technically version 1, there are new versions by date that you should update to if possible.
 
 You must use both the client side library and server side code, unless you design your own customer input form that takes the customer credit card number.  But creating your own credit card payment form is not recommended.
 
-The goal is to accept a payment from Stripe from a Google add-on without the user needing to navigate to another tab in the browser or another browser window, for example, to your website.  In other words, the goal is an “in-app” purchase.
-For this process, the user does not need to get a registration code from you and enter it.
+The goal is to accept a payment from Stripe from a Google add-on, or Google Web App without the user needing to navigate to another tab in the browser or another browser window, for example, to your website.  In other words, the goal is to provide the user with an “in-app” purchase.
 
-Stripe has “prebuilt” checkout forms.  To use a prebuilt solution, you must redirect users to your hosted payment page.  And after the customer has paid, they must be redirected back to the original place.  And then you’d need to create a “webhook” to fulfill the order (Eg. Save the customers new expiration date into a database, and somehow make sure that every time the add-on code runs, that it “knows” that the customer has paid) 
+For this payment process, the user does NOT need to get a registration code from you, navigate back to your app, and enter it in order to prove that they paid.
+
+In order to provide a broad understanding of what Stripe offers for solutions, I will explain some options that you DON'T want, if you want an "In-App" payment solution.
+
+It's important to understand a subtle difference between prebuilt Stripe forms, and prebuilt Stripe Elements.  Both use the word "prebuilt."  Both the prebuilt Stripe forms and the prebuilt Stripe elements are capable of customizing a payment form.  So, if you are trying to figure out what the difference is, it can be a little hard to determine that.  Basically, the difference is the flow of events.  With the prebuilt form you must redirect the person paying to your website to accept a payment.
+
+Stripe has “prebuilt” checkout forms ("Checkout").  Don't use this if you want an "In-App" payment solution.  To use a prebuilt solution, you must redirect users to your hosted payment page.  And after the customer has paid, they must be redirected back to the original place.  And then you’d need to create a “webhook” to fulfill the order (Eg. Save the customers new expiration date into a database, and somehow make sure that every time the add-on code runs, that it “knows” that the customer has paid) 
 
 In the prebuilt checkout process flow, the steps are:
 Create a checkout session on your server
