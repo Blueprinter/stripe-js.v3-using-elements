@@ -11,6 +11,17 @@ For this code to work, you must get two API secrets from your stripe account.  O
 
 See the stripe documentation at: https://stripe.com/docs/keys to get your stripe keys.
 
+This example shows 5 different payment forms.  Each payment form has it's own CSS and JavaScript file.  Obviously, you won’t want to use all 5 stripe payment forms in your app, so you’ll only want to load one CSS file and one JavaScript file for your final payment form.  In the example, the Web App loads 5 different CSS files, 5 JavaScript files, and the H_Stripe file has 5 payment forms in it.  So, you need to edit the H_Stripe file and delete what you don’t need.  You’ll need to load only one CSS file and one JS file into the H_Stripe  file.
+
+In the H_Stripe file, there is a scriptlet that loads the CSS:
+
+<?!= loadCSS_(['CSS_Stripe_Base','CSS_Stripe_Example1','CSS_Stripe_Example2','CSS_Stripe_Example3','CSS_Stripe_Example4',
+  'CSS_Stripe_Example5']) ?>
+
+You need to remove 4 of the 'CSS_Stripe_ExampleX' strings.  Which ones you remove depends on which example you use for your payment form.  Or you may rename the files, and edit them.
+
+The point is, that even though this is a fairly complete example, there could still be a lot of work to do to in order to customize the HTML and CSS to your needs.
+
 
 Stripe has a client side JavaScript library, which is in version 3 at the time of this commit, and a server side API which is still technically in version 1.  But the server side API of version 1 is misleading, because there are new versions that go by date.  So, even though the API is technically version 1, there are new versions by date that you should update to if possible.
 
@@ -92,13 +103,4 @@ https://stripe.com/docs/payments/accept-a-payment-charges
 
 The vast majority of the code that you need is provided in examples on GitHub.  But those examples only get you as far as the custom input form, the user submission, and getting the token ID back.  The code for sending the token from the client to the server, and then using the stripe API to get the actual payment from stripe from the Apps Script request is not provided in the GitHub code.  Obviously, that part is specific to Apps Script, and not generic.  But in my example, I will provide the Apps Script code for the last part of the process.
 
-Obviously, you won’t want to use all 5 stripe payment forms in your app, so you’ll only want to load one CSS file and one HTML file for the payment form.  In the example, the Web App loads 5 different CSS files, 5 JavaScript files, and the H_Stripe file has 5 payment forms in it.  So, you need to edit the H_Stripe file and delete what you don’t need.  You’ll need to load only one CSS file and one JS file into the H_Stripe  file.  
 
-In the H_Stripe file, there is a scriptlet that loads the CSS:
-
-<?!= loadCSS_(['CSS_Stripe_Base','CSS_Stripe_Example1','CSS_Stripe_Example2','CSS_Stripe_Example3','CSS_Stripe_Example4',
-  'CSS_Stripe_Example5']) ?>
-
-You need to remove 4 of the 'CSS_Stripe_ExampleX' strings.  Which ones you remove depends on which example you use for your payment form.  Or you may rename the files, and edit them.
-
-The point is, that even though this is a fairly complete example, there could still be a lot of work to do to in order to customize the HTML and CSS to your needs.
