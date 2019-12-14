@@ -1,0 +1,49 @@
+<script>
+/*
+  This code is by Alan Wells - not stripe
+
+*/
+if (!window.AAA_Library){
+  window.AAA_Library = {};
+}
+
+window.AAA_Library.callServer = function(data) {
+  
+  //console.log('data 12: ' + JSON.stringify(data))
+  
+  google.script.run
+    .withSuccessHandler(AAA_Library.paymentComplete)
+    .runSrvrCode(['cpoisdnf',data]);
+
+}
+
+window.AAA_Library.paymentComplete = function(r) {
+try{
+  var example,exampleName,formClass;
+  
+  //console.log('return: ' + r)
+  
+  if (r === false) {
+    alert('You must enter both a client and server stripe secret into the code for it to work! ' +
+    'Get the secrets from your stripe account. There was an error - the payment was not completed')
+    return;
+  }
+  
+  //console.log('window.AAA_Library.stripeFormClassName: ' + window.AAA_Library.stripeFormClassName)
+  
+  formClass = '.' + window.AAA_Library.stripeFormClassName;
+  example = document.querySelector(formClass);
+  
+  //console.log('example.class: ' + example.class)
+  //console.log('AAA_Library.tokenID: ' + AAA_Library.tokenID)
+  
+  example.querySelector('.token').innerText = AAA_Library.tokenID;
+  example.classList.add('submitted');
+}catch(e){
+  //console.log('Error: ' + e.message + "/nStack: " + e.stack);
+
+}
+}
+</script>
+
+
