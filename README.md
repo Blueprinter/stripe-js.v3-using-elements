@@ -1,7 +1,10 @@
 # stripe-js.v3-using-elements
 Stripe payment system using JS version 3 - in app payment system using Stripe Elements
 
-Stripe has a client side JavaScript library, which is currently in version 3, and a server side API which is still technically in version 1.  But the server side API of version 1 is misleading, because there are new versions that go by date.  So, even though the API is technically version 1, there are new versions by date that you should update to if possible.
+To see the original stripe example code, use the link: https://github.com/stripe/stripe-payments-demo
+Most of the code in this example is code provided at the link above.  I have added some code to integrate the stripe code into an Apps Script Web App.
+
+Stripe has a client side JavaScript library, which is in version 3 at the time of this commit, and a server side API which is still technically in version 1.  But the server side API of version 1 is misleading, because there are new versions that go by date.  So, even though the API is technically version 1, there are new versions by date that you should update to if possible.
 
 You must use both the client side library and server side code, unless you design your own customer input form that takes the customer credit card number.  But creating your own credit card payment form is not recommended.
 
