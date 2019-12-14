@@ -19,6 +19,11 @@ Publish the Web App
 
 */
 
+/*
+GitHub link to stripe example:
+https://github.com/stripe/stripe-payments-demo
+*/
+
 function doGet() {
   var h;
   
